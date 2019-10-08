@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MyAirBnB</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/0438bf0418.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+  
+<!-- Image and text -->
+<header>
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <div class="container-fluid">
+  <a class="navbar-brand" href="/">
+    <i class="fas fa-hiking" width="40" height="40" class="d-inline-block align-top" alt=""></i>
+  The Weary Traveler
+  </a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/roomListing">Bookings</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/registration" data-toggle="modal" data-target="#exampleModal">Login</a>
+        
+      </li>
+    </ul>
+  </div>
+  </div>
+</nav>
+</header>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form >
+        <h5 class="form-titleform-title" id="register">Please register your account here</h5>
+        <div class="registration-group">
+          <div class="emailLine"><input type="email" class="form-control" aria-describedby="emailHelp"  placeholder="Email address"> </div>
+          <div class="emailLine"><input type="text" class="form-control" aria-describedby="emailHelp"  placeholder="First Name"> </div>
+          <div class="emailLine"><input type="text" class="form-control" aria-describedby="emailHelp"  placeholder="Last Name"></div>
+          <input type="password" class="form-control" id="inputPassword" placeholder="Create Password">
+
+          <h5 class="title">Birthday</h5>
+           <small id="emailHelp" class="form-text text-muted">To sign up, you need to be at least 18. Other people who use our
+             website won't see your birthday.
+           </small>
+        <div class="input-grp">
+            <input type="date" class="form-control select-date">
+        </div>
+
+         <div>
+        <button type="submit" class="btn btn-primary">SIGN UP</button>
+        </div>
+      </div>
+</form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    {{{body}}}
+
+  <footer class="container py-4">
+  <div class="row">
+    <div class="col-12 col-md">
+      <i class="fas fa-hiking fa-2x" class="d-inline-block align-top" alt=""></i>
+      <small class="d-block mb-3 text-muted">© 2017-2019</small>
+    </div>
+  <div class="col-6 col-md">
+      <h5>The Company</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="#">Careers</a></li>
+        <li><a class="text-muted" href="#">News</a></li>
+        <li><a class="text-muted" href="#">Policies</a></li>
+        <li><a class="text-muted" href="#">Help</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Discover</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="#">Trust and Safety</a></li>
+        <li><a class="text-muted" href="#">Invite Friends</a></li>
+        <li><a class="text-muted" href="#">Business Travel</a></li>
+        <li><a class="text-muted" href="#">The Hobo Journal</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <ul class="list-unstyled text-small">
+        <li class ="row">
+          <a class="navbar-brand" href="https://www.facebook.com/" style="color:black"> <i class="fab fa-facebook-f fa-1x" ></i></a>
+          <a class="navbar-brand" href="https://www.instagram.com/"style="color:black"><i class="fab fa-instagram fa-1x" ></i></a>
+          <a class="navbar-brand" href="https://www.twitter.com/"style="color:black"><i class="fab fa-twitter fa-1x" ></i></a>
+        </li>
+        <li><a class="text-muted" href="#">Team</a></li>
+        <li><a class="text-muted" href="#">Locations</a></li>
+        <li><a class="text-muted" href="#">Privacy</a></li>
+        <li><a class="text-muted" href="#">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+*{
+    margin:0;
+    padding:0;
+  }
+ html, body{
+    height:100%;
+    width:100%;
+    color: #222222;
+  }
+
+  .navbar{
+    padding: .8rem;
+  }
+  .navbar-nav li{
+    padding-right: 1em;
+  }
+  .navbar-brand{
+    padding-right: 1em;
+  }
+ section{
+    padding: 2%;
+ }
+
+ #info
+ {
+    padding-left: 5%;
+    padding-right: 5%;
+ }
+ #promo{
+    padding-left: 5%;
+    padding-right: 5%;
+ }
+#banner{
+
+    background-image: url("/images/background3.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height:70vh;
+}
+.booking-form-box{
+
+  max-width:22rem;
+  margin:10% auto 0;
+  background-color: white;
+  border-radius:5px;
+  border: 1px white;
+ 
+}
+
+
+.booking-group{
+  padding: 0 1.25rem 1.25rem;
+ 
+}
+
+.registration-group{
+  padding: 0 1.25rem 1.25rem;
+ 
+}
+
+
+.form-titleform-title
+{
+  padding-top: 1.25rem;
+  padding-left: 1.25rem;
+}
+
+#register{
+
+  padding-bottom: 0.75rem;
+}
+.title
+{ padding-top: 0.75rem;
+}
+
+#emailHelp, .emailLine
+{
+  padding-bottom: 0.75rem;
+}
+
+.booking-group label{
+  margin-bottom: 0.3125rem;
+  margin-top: 0.625rem;
+  font-size: 0.75rem;
+  color: #222222;
+}
+
+.registration-group label{
+  margin-bottom: 0.3125rem;
+  margin-top: 0.625rem;
+  font-size: 0.75rem;
+  color: #222222;
+}
+
+input::placeholder
+{
+  color: #222222;
+}
+
+.input-grp
+{
+  display: inline-block;
+  width: 9.4375rem;
+}
+
+.form-control, .custom-select
+{
+  font-size: 0.75rem;
+  border-radius:1;
+  background: transparent;
+  box-shadow:none;
+
+}
+
+.select-date::-webkit-inner-spin-button,
+.select-date::-webkit-outer-spin-button
+{
+  -webkit-appearance: none;
+  margin:0;
+}
+
+.select-date::-webkit-calendar-picker-indicator
+{
+  background: transparent;
+}
+
+.custom-select{
+  color: #222222;
+  font-size: 0.75rem;
+  border-radius:1;
+}
+
+
+
+#cust-loc:drop
+{
+  color: #222222;
+}
+.btn-primary
+{
+ width:100%;
+ padding: 9px 0;
+ color: white;
+  font-size: 1rem;
+  background: #FF4A4A;
+  border-radius:1;
+  margin-top: 15px;
+  border: transparent;
+
+}
+
+.btn-primary:hover
+{
+  background: #FF7878;
+  transition:0.5s;
+  color: #222222;
+}
+
+#cardLine1
+{
+  padding: 2%;
+}
+
+#cardLine2
+{
+  padding: 2%;
+}
