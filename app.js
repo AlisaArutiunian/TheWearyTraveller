@@ -10,7 +10,7 @@ app.set('view engine', 'handlebars');
 app.get("/",(req,res)=>
 {
 
-  res.render("home")
+  res.render("home");
 
 });
 
@@ -30,6 +30,6 @@ app.get("/roomListing",(req,res)=>
 
 const PORT = process.env.PORT || 3000
 
-app.listen(3000, ()=>{
+app.listen(PORT, ()=>{
     console.log(`Web server is connected at PORT${PORT}`)
 })
