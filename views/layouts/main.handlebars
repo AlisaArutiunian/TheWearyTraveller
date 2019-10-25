@@ -32,8 +32,10 @@
         <a class="nav-link" href="/roomListing">Bookings</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/registration" data-toggle="modal" data-target="#exampleModal">Login</a>
-        
+        <a class="nav-link" href="/registration" data-toggle="modal" data-target="#exampleModal">Sign Up</a>  
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="/login" data-toggle="modal" data-target="#loginModal">Login</a>
       </li>
     </ul>
   </div>
@@ -41,7 +43,7 @@
 </nav>
 </header>
 
-<!-- Modal -->
+<!-- Modal for SignUp-->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -71,7 +73,35 @@
   </div>
 </div>
 
+<!-- End of Sign Up modal -->
+<!-- Modal for Login-->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+     <form >
+        <h5 class="form-titleform-title" id="register">Please log in below</h5>
+        <div class="registration-group">
+          <div class="emailLine"><input type="email" class="form-control" aria-describedby="emailHelp"  placeholder="Email address"> </div>
+          <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+<div class="form-check-inline">
+        <input class="form-check-input" type="checkbox" id="autoSizingCheck2">
+        <label class="form-check-label" for="autoSizingCheck2">
+          Remember me
+        </label>
+      </div>
+         <div>
+          <button type="submit" class="btn btn-primary">LOG IN</button>
+        </div>
+      </div>
+</form> 
 
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End of Login modal -->
 
     {{{body}}}
 

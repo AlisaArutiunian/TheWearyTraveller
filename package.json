@@ -1,7 +1,6 @@
 {
   "name": "assgn1",
   "version": "1.0.0",
-  "description": "",
   "engines": {
     "node": "10.x"
   },
@@ -19,5 +18,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/AlisaArutiunian/TheWearyTraveller"}
+    "url": "git+https://github.com/AlisaArutiunian/TheWearyTraveller.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AlisaArutiunian/TheWearyTraveller/issues"
+  },
+  "homepage": "https://github.com/AlisaArutiunian/TheWearyTraveller#readme",
+  "devDependencies": {},
+  "description": ""
 }

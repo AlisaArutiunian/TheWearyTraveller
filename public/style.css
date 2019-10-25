@@ -86,12 +86,12 @@
   color: #222222;
 }
 
-.registration-group label{
-  margin-bottom: 0.3125rem;
-  margin-top: 0.625rem;
-  font-size: 0.75rem;
-  color: #222222;
+.form-check-inline
+{
+  font-size: 0.9rem;
+  margin-top: 0.65rem;
 }
+
 
 input::placeholder
 {
@@ -123,12 +123,6 @@ input::placeholder
 .select-date::-webkit-calendar-picker-indicator
 {
   background: transparent;
-}
-
-.custom-select{
-  color: #222222;
-  font-size: 0.75rem;
-  border-radius:1;
 }
 
 

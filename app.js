@@ -21,11 +21,19 @@ app.get("/registration",(req,res)=>
 
 });
 
+app.get("/login",(req,res)=>
+{
+    res.render("login")
+
+});
+
+
 app.get("/roomListing",(req,res)=>
 {
     res.render("roomListing")
 
 });
+
 
 
 const PORT = process.env.PORT || 3000
