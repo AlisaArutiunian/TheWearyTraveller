@@ -1,0 +1,46 @@
+<div class="m-4">
+<form role = "form" action="/updateRoom{{#if room._id}}/{{room._id}}/?_method=PUT{{/if}}" method ="POST" enctype="multipart/form-data">
+
+    <div class="form-row">
+      <label for="validationDefault01">Room Title</label>
+      <input type="text" name = "title" value = "{{room.title}}"class="form-control {{#if error.title}}is-invalid{{/if}}" id="validationDefault01">
+        {{#each error.title}}
+                <div class="invalid-feedback">{{this}}</div>
+            {{/each}}
+    </div>
+
+    <div class="my-3 form-row">
+      <label for="validationDefault01">Price</label>
+      <input type="text" name = "price"  value = "{{room.price}}" class="form-control {{#if error.price}}is-invalid{{/if}}" id="validationDefault01">
+       {{#each error.price}}
+                <div class="invalid-feedback">{{this}}</div>
+            {{/each}}
+    </div>
+
+     <div class="my-3 form-row">
+      <label for="validationDefault01">Description</label>
+      <textarea class="form-control" name = "description" rows="3" id="validationDefault01"> {{room.description}}</textarea>
+    </div>
+
+     <div class="my-3 form-row">
+      <label for="validationDefault01">Location</label>
+      <input type="text" name = "location" value = "{{room.location}}" class="form-control {{#if error.location}}is-invalid{{/if}}" id="validationDefault01">
+       {{#each error.location}}
+                <div class="invalid-feedback">{{this}}</div>
+            {{/each}}
+    </div>
+
+   <div class="my-4 form-row custom-file">
+        <input type="file" name = "image" {{#if room.image}} <img src= "/images/{{room.image}}" class="room-pic"> {{/if}} 
+        class="custom-file-input {{#if error.image}}is-invalid{{/if}}" id="customFile">
+        <label class="custom-file-label .text-muted" for="customFile"> Upload image</label>
+        {{#each error.image}}
+                <div class="invalid-feedback">{{this}}</div>
+            {{/each}}
+    </div>
+
+    <div class="d-flex justify-content-center  mb-3">
+        <button class="btn btn-outline-dark btn-block" style="width: 20rem;" type="submit">Submit</button>
+    </div>
+</form>
+</div>

@@ -48,7 +48,10 @@
  
 }
 
+#validationDefault01 {
 
+  font-size: 1rem;
+}
 .booking-group{
   padding: 0 1.25rem 1.25rem;
  
@@ -125,13 +128,17 @@ input::placeholder
   background: transparent;
 }
 
-
-
+.custom-file-label
+{
+  font-size: 1rem;
+  color: #222222;
+}
+ 
 #cust-loc:drop
 {
   color: #222222;
 }
-.btn-primary
+.btn-primary-red
 {
  width:100%;
  padding: 9px 0;
@@ -144,7 +151,8 @@ input::placeholder
 
 }
 
-.btn-primary:hover
+
+.btn-primary-red:hover
 {
   background: #FF7878;
   transition:0.5s;

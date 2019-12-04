@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const UserInfo = require('../entities/userInfo');
+const UserInfo = require('../models/userInfo');
 const nodemailer = require('nodemailer');
 const sgTransport = require('nodemailer-sendgrid-transport');
 
@@ -40,6 +40,8 @@ router.post('/', function(req, res) {
     if (req.body.inBirthday === '') {
       error.birthday.push('Please enter your birthday');
     }
+
+    
   
     if (req.body.inPassword === '') {
       error.password.push('Please enter your password');
@@ -86,7 +88,7 @@ router.post('/', function(req, res) {
       console.log('A user has been added');
       const options = {
       auth: {
-      api_key: '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',
+      api_key: process.env.API,
            },
       };
 
