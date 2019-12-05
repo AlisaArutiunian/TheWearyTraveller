@@ -5,16 +5,15 @@
     <div class="row padding">
         <div class="col-lg-4">
 <div class="booking-form-box">
-    <form >
+    <form action = "/" method = "POST" >
         <h5 class="form-titleform-title">Time to pick your next stay!</h5>
         <div class="booking-group">
-            <label for="location">WHERE</label>
-             <select class="custom-select" id="cust-loc">
-                <option value"" disabled selected> Location</option>
-               <option value="1">Toronto, Ontario</option>
-               <option value="2">Montreal, Quebec</option>
-               <option value="3">Vancouver, British Columbia</option>
-               <option value="4">Halifax, Nova Scotia</option>
+            <label for="cust-loc">WHERE</label>
+             <select class="custom-select" id="cust-loc" name = "location">
+               <option value"" disabled selected>Location</option>
+               {{#each locations}}
+                    <option value="{{this}}">{{this}}</option>
+               {{/each}}
             </select>
         <div class="input-grp">
             <label for="checkIn">CHECK-IN</label>

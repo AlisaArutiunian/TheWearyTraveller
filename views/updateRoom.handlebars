@@ -1,6 +1,12 @@
 <div class="m-4">
 <form role = "form" action="/updateRoom{{#if room._id}}/{{room._id}}/?_method=PUT{{/if}}" method ="POST" enctype="multipart/form-data">
 
+    {{#if room.image}} 
+      <div class="form-row my-2">
+        <img class="img-fluid" src= "/images/{{room.image}}"> 
+      </div>
+    {{/if}}
+
     <div class="form-row">
       <label for="validationDefault01">Room Title</label>
       <input type="text" name = "title" value = "{{room.title}}"class="form-control {{#if error.title}}is-invalid{{/if}}" id="validationDefault01">
@@ -10,30 +16,29 @@
     </div>
 
     <div class="my-3 form-row">
-      <label for="validationDefault01">Price</label>
-      <input type="text" name = "price"  value = "{{room.price}}" class="form-control {{#if error.price}}is-invalid{{/if}}" id="validationDefault01">
+      <label for="validationDefault02">Price</label>
+      <input type="text" name = "price"  value = "{{room.price}}" class="form-control {{#if error.price}}is-invalid{{/if}}" id="validationDefault02">
        {{#each error.price}}
                 <div class="invalid-feedback">{{this}}</div>
             {{/each}}
     </div>
 
      <div class="my-3 form-row">
-      <label for="validationDefault01">Description</label>
-      <textarea class="form-control" name = "description" rows="3" id="validationDefault01"> {{room.description}}</textarea>
+      <label for="validationDefault03">Description</label>
+      <textarea class="form-control" name = "description" rows="3" id="validationDefault03">{{room.description}}</textarea>
     </div>
 
      <div class="my-3 form-row">
-      <label for="validationDefault01">Location</label>
-      <input type="text" name = "location" value = "{{room.location}}" class="form-control {{#if error.location}}is-invalid{{/if}}" id="validationDefault01">
+      <label for="validationDefault04">Location</label>
+      <input type="text" name = "location" value = "{{room.location}}" class="form-control {{#if error.location}}is-invalid{{/if}}" id="validationDefault04">
        {{#each error.location}}
                 <div class="invalid-feedback">{{this}}</div>
             {{/each}}
     </div>
 
    <div class="my-4 form-row custom-file">
-        <input type="file" name = "image" {{#if room.image}} <img src= "/images/{{room.image}}" class="room-pic"> {{/if}} 
-        class="custom-file-input {{#if error.image}}is-invalid{{/if}}" id="customFile">
-        <label class="custom-file-label .text-muted" for="customFile"> Upload image</label>
+        <input type="file" name = "image" class="custom-file-input {{#if error.image}}is-invalid{{/if}}" id="customFile">
+        <label class="custom-file-label text-muted" for="customFile"> Upload image</label>
         {{#each error.image}}
                 <div class="invalid-feedback">{{this}}</div>
             {{/each}}

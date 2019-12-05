@@ -23,60 +23,7 @@ router.get("/:id",(req,res)=>
     .catch(err=>console.log(`Error : ${err}`));
 });
 
-router.put("/:id",(req,res)=>
-{ 
-    RoomInfo.findById(req.params.id)
-    .then((room)=> {
-        room.title = req.body.title,
-        room.price = req.body.price,
-        room.description = req.body.description,
-        room.location = req.body.location,
-        room.image = req.body.image
-
-       room.save()
-       .then(() =>
-       {
-           res.redirect("/admin")
-       })
-       .catch(err=>console.log(`Error : ${err}`));
-
-    })
-    .catch(err=>console.log(`Error : ${err}`));
-
-});
-
-/*
-router.post("/",(req,res)=>
-{ 
-    console.log(`Room works`);
-
-
-    const room = new RoomInfo({
-        title:req.body.title,
-        price:req.body.price,
-        description : req.body.description,
-        location: req.body.location,
-        imageRoom: req.body.image
-    });
-    
-    // TODO: implement logic for data checking 
-    // (mostly nulls, other business rules)
-    // if fails - render, send the object back with errors
-    
-    room.save()
-    .then(()=>{
-        console.log(`Room was added to the database`);
-        console.log(`${room}`);
-        res.redirect("/admin");
-    })
-    .catch(err=>console.log(`Error : ${err}`));
-
-});*/
-
-
-
-router.post('/', function(req, res){
-
+const insertOrUpdate = async function (req, res, id) {
     const error = {
         title: [],
         price: [],
@@ -115,42 +62,72 @@ router.post('/', function(req, res){
         error.image.length > 0) {
 
             res.render('updateRoom', {
-                title: req.body.title,
-                price: req.body.price,
-                description: req.body.description,
-                location: req.body.location,
-                //image: req.body.image,
-                error:error
+                room: {
+                    title: req.body.title,
+                    price: req.body.price,
+                    description: req.body.description,
+                    location: req.body.location,
+                    image: req.body.image,
+                },
+                error: error
             });
         } else {
-            const room = new RoomInfo({
-                title: req.body.title,
-                price: req.body.price,
-                description: req.body.description,
-                location: req.body.location,
-                //image: req.body.image
-            });
 
-            room.save().then(room=>
+            let room;
+
+            if (id === null) {
+                room = new RoomInfo();
+            } else {
+                room = await RoomInfo.findById(id)
+                                .catch(err=>console.log(`Error : ${err}`));
+                                
+                /*RoomInfo.findById(req.params.id)
+                    .then((room)=> {
+                        room.title = req.body.title,
+                        room.price = req.body.price,
+                        room.description = req.body.description,
+                        room.location = req.body.location,
+                        room.image = req.body.image
+                    })
+                    .catch(err=>console.log(`Error : ${err}`));*/
+            }
+
+            room.title = req.body.title;
+            room.price = req.body.price;
+            room.description = req.body.description;
+            room.location = req.body.location;
+            room.image = req.body.image;
+
+            room.save().then(room =>
                 {
-                    req.files.image.name = `db_${room._id}${path.parse(req.files.image.name).ext}`
-                    req.files.image.mv(`public/images/${req.files.image.name}`)
-                    .then(() =>{
-                        RoomInfo.findByIdAndUpdate(room._id,{
-                            image:req.files.image.name 
-                        })
-                        .then(()=>{
-                            console.log(`File name was updated in the database`)
-                            res.redirect("/admin");
-                        }) .catch(err=>console.log(`Error :${err}`));
-                    });
+                    if (req.files) {
+                        req.files.image.name = `db_${room._id}${path.parse(req.files.image.name).ext}`;
+                        req.files.image.mv(`public/images/${req.files.image.name}`)
+                        .then(() =>{
+                            RoomInfo.findByIdAndUpdate(room._id,{
+                                image:req.files.image.name 
+                            })
+                            .then(()=>{
+                                console.log(`File name was updated in the database`)
+                                res.redirect("/admin");
+                            }) .catch(err=>console.log(`Error :${err}`));
+                        });
+                    }
+                    
             }).catch((err) => {
                 console.log(`Houston, we have a problem: ${err}`);
               });
 
         }
+};
 
+router.put("/:id", (req,res) =>
+{ 
+    insertOrUpdate(req, res, req.params.id);
 });
 
+router.post('/', function(req, res){
+    insertOrUpdate(req, res, null);
+});
 
 module.exports=router;
