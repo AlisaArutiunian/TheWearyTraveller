@@ -1,6 +1,6 @@
 const hasAdminAccess = (req,res, next) =>
 {
-    if( req.session.userInfo._id != process.env.ADMIN_ID)
+    if( req.session.userInfo.admin != true)
     {
         res.redirect('/login');
 
