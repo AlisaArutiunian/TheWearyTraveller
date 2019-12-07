@@ -8,7 +8,7 @@ const sgTransport = require('nodemailer-sendgrid-transport');
 
 router.get("/",(req,res)=>
 {
-    res.render("home", {
+    res.render("General/home", {
         regDisplay: true
     });
 
@@ -79,7 +79,7 @@ router.post('/', function(req, res) {
       error.birthday.length > 0 ||
       error.password2.length > 0) {
   
-      res.render('home', {
+      res.render('General/home', {
      
         regDisplay: true,
         outEmail: req.body.inEmail,
@@ -95,7 +95,7 @@ router.post('/', function(req, res) {
         if(user) {
           //user exists
           error.email.push('This email is already registered');
-          res.render('home', {
+          res.render('General/home', {
             regDisplay: true,
             outEmail: req.body.inEmail,
             outFirstName: req.body.inFirstName,
@@ -118,6 +118,7 @@ router.post('/', function(req, res) {
 
       User.save().then(() =>
     {
+      
       console.log('A user has been added');
       const options = {
       auth: {
@@ -147,7 +148,7 @@ router.post('/', function(req, res) {
       }).catch((err) => {
         console.log(`Houston, we have a problem: ${err}`);
       });
-          res.redirect('/');
+          res.redirect('/?notify=1');
        }
       });
      }

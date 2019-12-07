@@ -29,14 +29,30 @@
       <li class="nav-item active">
         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
+       {{#if userInfo}}
+      <li class="nav-item">
+        <a class="nav-link" href="/roomListingLogged">Bookings</a>
+      </li>
+      {{else}}
       <li class="nav-item">
         <a class="nav-link" href="/roomListing">Bookings</a>
       </li>
-      {{#if user._id}}
-      <li class="nav-item">
-        <a class="nav-link" href="/admin">Administration</a>
+      {{/if}}
+      {{#if userInfo}}
+            {{#if userInfo.admin}}
+            <li class="nav-item">
+          <a class="nav-link" href="/admin">Administration Account</a>
+          </li>
+          {{/if}}
+          <li class="nav-item">
+           <a class="nav-link" href="/profile"> Dashboard: {{userInfo.firstname}} {{userInfo.lastname}}</a>
+           </li>
       </li>
-     {{else}} 
+      <li class="nav-item">
+        <a class="nav-link" href="/login/logout">Log Out</a>
+      </li>
+          {{else}}
+        <!--<a class="nav-link" href="/admin">Administration</a>-->
       <li class="nav-item">
         <a class="nav-link" href="/registration">Sign up</a>
       </li>
@@ -44,12 +60,18 @@
         <a class="nav-link" href="/login">Login</a>
       </li>
    {{/if}}
-   
+  
     </ul>
   </div>
   </div>
 </nav>
 </header>
+<!-- TODO: this needs connect-flash -->
+ {{#if notification}}
+<div class="alert alert-success d-flex justify-content-center mx-4" role="alert">
+ Your account has been created!
+</div>
+{{/if}} 
 
 <!-- Modal for SignUp-->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -237,6 +259,7 @@
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="/try/examples/js/handlebars_helpers_if_eq.js"></script>
         {{#if loginDisplay}}
         <script type="text/javascript">
         $(document).ready(function() {
@@ -251,5 +274,6 @@
         });
     </script>
         {{/if}}
+
 </body>
 </html>

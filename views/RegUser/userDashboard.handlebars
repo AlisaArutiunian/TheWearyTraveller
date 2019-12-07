@@ -1,0 +1,34 @@
+<div class ="m-4">
+
+<h3 class= 'my-4'>Welcome, {{userInfo.firstname}} {{userInfo.lastname}}!</h3>
+
+<h4 class= 'my-4'>You can review your bookings below:</h4>
+    <div class="d-flex justify-content-center  mb-3">
+        
+    <table class="table table-hover">
+    <thead>
+        <tr>
+         <!--<th scope="col">ID</th>-->
+        <th scope="col">Image</th>
+        <th scope="col">Room Title</th>
+        <th scope="col">Location</th>
+        <th scope="col">Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each rooms}}
+        <tr>
+        <!--<td>{{this._id}}</td>-->
+        <td>
+            {{#if this.image}} 
+                <img src= "/images/{{this.image}}" class="room-pic" width="50" height="50"> 
+            {{/if}}
+        </td>
+        <td>{{this.title}}</td>
+        <td>{{this.location}}</td>
+        <td>{{this.price}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+    </table>
+</div>

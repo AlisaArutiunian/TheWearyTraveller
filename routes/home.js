@@ -8,8 +8,9 @@ router.get("/",(req,res)=>
   RoomInfo.find().distinct('location', function(error, results) {
     // ids is an array of all ObjectIds
 
-    res.render("home", {
-      locations: results
+    res.render("General/home", {
+      locations: results,
+      notification: req.query.notify
     });
 
   });

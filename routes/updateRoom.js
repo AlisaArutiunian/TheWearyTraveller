@@ -2,20 +2,22 @@ const express = require('express');
 const router = express.Router();
 const RoomInfo = require('../models/room')
 const path = require("path");
+const auth = require('../middleware/auth');
+const auth2 = require('../middleware/adminauth');
 
 
-router.get("/",(req,res)=>
+router.get("/",auth,auth2, (req,res)=>
 {
-    res.render("updateRoom");
+    res.render("Admin/updateRoom");
 
 });
 
-router.get("/:id",(req,res)=>
+router.get("/:id",auth,auth2,(req,res)=>
 {
     RoomInfo.findById(req.params.id)
     .then((room)=>{
 
-        res.render("updateRoom",{
+        res.render("Admin/updateRoom",{
             room: room
         })
 
@@ -52,7 +54,7 @@ const insertOrUpdate = async function (req, res, id) {
 
         errors.image.push("Sorry you can only upload images");
 
-        }
+       }
     }
 
 
@@ -61,7 +63,7 @@ const insertOrUpdate = async function (req, res, id) {
         error.location.length > 0 ||
         error.image.length > 0) {
 
-            res.render('updateRoom', {
+            res.render('Admin/updateRoom', {
                 room: {
                     title: req.body.title,
                     price: req.body.price,
@@ -121,12 +123,12 @@ const insertOrUpdate = async function (req, res, id) {
         }
 };
 
-router.put("/:id", (req,res) =>
+router.put("/:id", auth,auth2, (req,res) =>
 { 
     insertOrUpdate(req, res, req.params.id);
 });
 
-router.post('/', function(req, res){
+router.post('/', auth,auth2, (req, res)=>{
     insertOrUpdate(req, res, null);
 });
 

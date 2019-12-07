@@ -8,7 +8,7 @@ const RoomSchema = new Schema({
     price: {type:String, required: true},
     description: {type:String},
     location: {type:String, required: true},
-    image: {type:String},
+    image: {type:String}
 
     
 })

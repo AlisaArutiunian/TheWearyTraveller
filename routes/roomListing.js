@@ -33,7 +33,7 @@ router.get("/",(req,res)=>
         {
             row.push(cols);
         }
-        res.render("roomListing", {
+        res.render("General/roomListing", {
            rooms: row
         });
     })
