@@ -1,9 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require('bcryptjs');
-const RoomInfo = require('../models/room');
-
-
 
 const userSchema = new Schema({
 
@@ -13,8 +10,7 @@ const userSchema = new Schema({
     password: {type:String, required: true},
     //password2: {type:String, required: true},
     birthday: {type:Date, required: true},
-    admin: {type: Boolean, default: false},
-    bookedroom: []
+    admin: {type: Boolean, default: false}
 })
 
 // hashing/salting before saving the new object to DB

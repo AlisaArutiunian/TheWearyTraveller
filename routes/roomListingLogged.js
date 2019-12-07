@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const auth = require('../middleware/auth');
 const RoomInfo = require('../models/room');
+const BookedRooms = require('../models/bookedRooms');
 
 
 router.get("/",(req,res)=>
@@ -40,6 +42,29 @@ router.get("/",(req,res)=>
     .catch(err=>console.log(`Error : ${err}`));
 
 });
+
+router.post('/:id', auth, (req, res)=>{
+
+    RoomInfo.findById(req.params.id)
+    .then((room)=>{
+
+        if (room) {
+            const bookedRoom = new BookedRooms({
+                userInfo: req.session.userInfo._id,
+                roomInfo: room._id //this is from room URL
+            });
+            bookedRoom.save()
+            .then(()=>{
+                res.redirect('/profile');
+            }) .catch(err=>console.log(`Error: ${err}`))
+           
+        } else {
+            res.redirect('/profile');
+        }
+    }) .catch(err=>console.log(`Error: ${err}`))
+
+});
+
 
 
 module.exports=router;

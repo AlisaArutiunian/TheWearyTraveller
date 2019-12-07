@@ -45,12 +45,12 @@ const insertOrUpdate = async function (req, res, id) {
         error.location.push('Please enter the location');
     }
 
-    if (req.files == null)
+    if (!req.body.imgFilename && req.files == null)
     {
         error.image.push('Please upload the file');
     } else 
     {
-       if(req.files.image.mimetype.indexOf("image")==-1){
+       if(req.files && req.files.image.mimetype.indexOf("image")==-1){
 
         errors.image.push("Sorry you can only upload images");
 
@@ -98,7 +98,7 @@ const insertOrUpdate = async function (req, res, id) {
             room.price = req.body.price;
             room.description = req.body.description;
             room.location = req.body.location;
-            room.image = req.body.image;
+            room.image = req.body.imgFilename;
 
             room.save().then(room =>
                 {
@@ -114,6 +114,8 @@ const insertOrUpdate = async function (req, res, id) {
                                 res.redirect("/admin");
                             }) .catch(err=>console.log(`Error :${err}`));
                         });
+                    } else {
+                        res.redirect('/admin');
                     }
                     
             }).catch((err) => {

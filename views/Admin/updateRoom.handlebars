@@ -37,6 +37,9 @@
     </div>
 
    <div class="my-4 form-row custom-file">
+        <input type="hidden"
+                   name="imgFilename"
+                   value="{{room.image}}">
         <input type="file" name = "image" class="custom-file-input {{#if error.image}}is-invalid{{/if}}" id="customFile">
         <label class="custom-file-label text-muted" for="customFile"> Upload image</label>
         {{#each error.image}}

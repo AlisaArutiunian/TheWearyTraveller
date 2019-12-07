@@ -20,13 +20,13 @@
         <tr>
         <!--<td>{{this._id}}</td>-->
         <td>
-            {{#if this.image}} 
-                <img src= "/images/{{this.image}}" class="room-pic" width="50" height="50"> 
+            {{#if this.roomInfo.image}} 
+                <img src= "/images/{{this.roomInfo.image}}" class="room-pic" width="50" height="50"> 
             {{/if}}
         </td>
-        <td>{{this.title}}</td>
-        <td>{{this.location}}</td>
-        <td>{{this.price}}</td>
+        <td>{{this.roomInfo.title}}</td>
+        <td>{{this.roomInfo.location}}</td>
+        <td>{{this.roomInfo.price}}</td>
         </tr>
         {{/each}}
     </tbody>
